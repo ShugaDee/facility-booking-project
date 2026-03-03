@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/users/:match*",
+            "destination": "/api"
+        },
+        {
+            "source": "/facilities/:match*",
+            "destination": "/api"
+        },
+        {
+            "source": "/bookings/:match*",
+            "destination": "/api"
+        },
+        {
+            "source": "/availability(.*)",
+            "destination": "/api"
+        },
+        {
+            "source": "/health",
+            "destination": "/api"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/client/$1"
+        }
+    ]
+}

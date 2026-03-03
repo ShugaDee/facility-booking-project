@@ -19,7 +19,7 @@ export class User {
   email!: string;
 
   @Column({ type: "varchar", length: 20 })
-  role!: "user" | "admin";
+  role!: "user" | "admin" | "blocked";
 
   @OneToMany(() => Booking, (booking) => booking.user)
   bookings!: Relation<Booking[]>;

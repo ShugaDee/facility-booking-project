@@ -49,6 +49,11 @@ export class BookingController {
         return;
       }
 
+      if (user.role === "blocked") {
+        res.status(403).json({ message: "Blocked users cannot create bookings" });
+        return;
+      }
+
       // Check for booking conflicts
       const existingBooking = await bookingRepository.findOne({
         where: {

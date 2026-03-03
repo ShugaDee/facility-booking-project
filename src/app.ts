@@ -1,16 +1,20 @@
 import express, { Express } from "express";
+import cors from "cors";
 import facilitiesRouter from "./routes/facilities";
 import bookingsRouter from "./routes/bookings";
+import usersRouter from "./routes/users";
 import { BookingController } from "./controllers/BookingController";
 
 const app: Express = express();
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use("/facilities", facilitiesRouter);
 app.use("/bookings", bookingsRouter);
+app.use("/users", usersRouter);
 app.get("/availability", BookingController.checkAvailability);
 
 // Health check endpoint
